@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base_start/future/home/detailddeneme.dart';
 import 'package:flutter_base_start/future/home/home_view.dart';
+import 'package:flutter_base_start/future/splash/splash_view.dart';
 import 'package:flutter_base_start/product/init/app_initialize.dart';
 import 'package:flutter_base_start/product/init/state_initialize.dart';
 import 'package:flutter_base_start/product/theme/app_dark_theme.dart';
