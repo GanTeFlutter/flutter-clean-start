@@ -52,7 +52,7 @@ class HTTPService {
     );
   }
 
-  // Query parametrelerini API anahtarı ve dil ile birleştirir
+  // otamatik olarak her isteğe eklenen ortak sorgu parametrelerini oluşturur
   Map<String, dynamic> _buildQueryParams(Map<String, dynamic>? query) {
     return {'api_key': apiKey, 'language': 'en-US', ...?query};
   }
