@@ -1,3 +1,5 @@
+import 'package:dio/dio.dart';
+import 'package:flutter_base_start/product/service/services/http_service.dart';
 import 'package:flutter_base_start/product/service/services/logger_service.dart';
 import 'package:get_it/get_it.dart';
 
@@ -5,22 +7,17 @@ final GetIt locator = GetIt.instance;
 
 void setupLocator() {
   _registerSingletons();
-  // _registerLazySingletons();
-  // _registerFactories();
 }
 
 void _registerSingletons() {
-  locator.registerSingleton<LoggerService>(LoggerService());
+  locator
+    ..registerSingleton<LoggerService>(LoggerService())
+    ..registerSingleton<HTTPService>(
+      HTTPService(baseUrl: 'Env.baseUrl', apiKey: 'Env.apiKey', dio: Dio()),
+    );
 }
-
-//void _registerLazySingletons() {}
-// void _registerFactories() {}
 
 extension ServiceLocator on GetIt {
   LoggerService get logger => locator<LoggerService>();
+  HTTPService get http => locator<HTTPService>();
 }
-
-
-/// Kullanim
-/// locator.logger.i("Uygulama başladı");
-/// locator.supabase.addRandomUser();
