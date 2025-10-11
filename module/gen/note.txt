@@ -1,0 +1,12 @@
+
+
+
+flutter_gen: 
+  output:lib/src/asset
+  integrations:
+    lottie: true
+    flutter_svg: true
+
+  colors:
+    inputs:
+      - assets/color/colors.xml  

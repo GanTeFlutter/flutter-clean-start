@@ -5,14 +5,14 @@ final GoRouter _router = GoRouter(
     GoRoute(
       path: '/',
       builder: (BuildContext context, GoRouterState state) {
-        return const HomeView();
+        return const SplashView();
       },
       routes: <RouteBase>[
         GoRoute(
-          path: '/splash',
-          name: 'SplashView',
+          path: '/home',
+          name: 'HomeView',
           builder: (BuildContext context, GoRouterState state) {
-            return const SplashView();
+            return const HomeView();
           },
         ),
       ],

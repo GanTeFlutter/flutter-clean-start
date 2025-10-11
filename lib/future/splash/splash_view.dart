@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -17,7 +18,12 @@ class _SplashViewState extends State<SplashView> {
           mainAxisAlignment: MainAxisAlignment.center,
           spacing: 10,
           children: [
-            ElevatedButton(onPressed: () {}, child: const Text('SplashView')),
+            ElevatedButton(
+              onPressed: () {
+                context.goNamed('HomeView');
+              },
+              child: const Text('Go to HomeView'),
+            ),
             ElevatedButton(onPressed: () {}, child: const Text('SplashView')),
             ElevatedButton(onPressed: () {}, child: const Text('SplashView')),
             const Text('SplashView'),
