@@ -70,7 +70,6 @@ flutter_gen:
 
 flutter:
 
-
   assets:
     - assets/image/
     - assets/lottie/

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_base_start/product/default/project_padding.dart';
 import 'package:gen/gen.dart';
 
 class HomeView extends StatefulWidget {
@@ -35,10 +36,13 @@ class _HomeViewState extends State<HomeView> {
             package: 'gen',
           ),
 
-          Container(
-            color: ColorName.red,
-            height: 200,
-            width: 200,
+          Padding(
+            padding: ProjectPadding.allSmall,
+            child: Container(
+              color: ColorName.red,
+              height: 200,
+              width: 200,
+            ),
           ),
         ],
       ),

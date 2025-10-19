@@ -2,7 +2,6 @@
 import 'package:flutter_base_start/product/service/services/dio_service.dart';
 import 'package:flutter_base_start/product/service/services/logger_service.dart';
 import 'package:get_it/get_it.dart';
-import 'package:logger/logger.dart';
 
 // GetIt paketinden bir instance (tekil örnek) oluşturuluyor.
 // Bu instance, uygulama genelinde servisleri tek bir yerden yönetmeyi sağlar.
@@ -33,11 +32,11 @@ void _registerSingletons() {
 
 // Şu anda boş ama ilerde "lazy singleton" tanımlamak için kullanılabilir.
 // Lazy singleton: sadece ilk kez ihtiyaç duyulduğunda oluşturulan servistir.
-void _registerLazySingletons() {}
+// void _registerLazySingletons() {}
 
 // Bu da ilerde "factory" tipi kayıtlar için kullanılabilir.
 // Factory: her çağrıldığında yeni bir nesne döndürür.
-void _registerFactories() {}
+// void _registerFactories() {}
 
 // Bu extension, locator üzerinden kısa yoldan servislere erişmeyi sağlar.
 // Örneğin: locator.logger veya locator.http
