@@ -12,5 +12,5 @@ Anlam: "Bu sadece sabit değerleri tutan bir utility class'tır. Değiştirileme
 final class AppRoutes {
   const AppRoutes._();
   static const String homeView = 'HomeView';
-  static const String versionUpdate = 'VersionUpdate';
+  static const String versionUpdateView = 'VersionUpdateView';
 }

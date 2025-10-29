@@ -17,10 +17,10 @@ final GoRouter _router = GoRouter(
           },
         ),
         GoRoute(
-          path: 'versionUpdate',
-          name: AppRoutes.versionUpdate,
+          path: 'versionUpdateView',
+          name: AppRoutes.versionUpdateView,
           builder: (BuildContext context, GoRouterState state) {
-            return const VersionUpdate();
+            return const VersionUpdateView();
           },
         ),
       ],

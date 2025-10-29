@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class VersionUpdate extends StatelessWidget {
-  const VersionUpdate({super.key});
+class VersionUpdateView extends StatelessWidget {
+  const VersionUpdateView({super.key});
 
   @override
   Widget build(BuildContext context) {
