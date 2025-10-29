@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base_start/product/default/project_padding.dart';
+import 'package:flutter_base_start/product/constant/app_padding.dart';
 import 'package:gen/gen.dart';
 
 class HomeView extends StatefulWidget {
