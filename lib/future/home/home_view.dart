@@ -35,15 +35,6 @@ class _HomeViewState extends State<HomeView> {
             width: 200,
             package: 'gen',
           ),
-
-          Padding(
-            padding: ProjectPadding.allSmall,
-            child: Container(
-              color: ColorName.red,
-              height: 200,
-              width: 200,
-            ),
-          ),
         ],
       ),
     );
