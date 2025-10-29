@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_base_start/future/home/home_view.dart';
 import 'package:flutter_base_start/future/splash/splash_view.dart';
 import 'package:flutter_base_start/future/splash/version_update.dart';
+import 'package:flutter_base_start/product/constant/app_keys.dart';
+import 'package:flutter_base_start/product/constant/app_routes.dart';
 import 'package:flutter_base_start/product/init/app_initialize.dart';
 import 'package:flutter_base_start/product/init/state_initialize.dart';
 import 'package:go_router/go_router.dart';
@@ -20,7 +22,7 @@ class _MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      title: 'ColorCraftPro',
+      title: 'clear_architecture_base',
       // theme: AppLightTheme().themeData,
       // darkTheme: AppDarkTheme().themeData,
       routerConfig: _router,

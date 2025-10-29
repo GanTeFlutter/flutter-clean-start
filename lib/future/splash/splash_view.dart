@@ -11,20 +11,28 @@ class SplashView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: BlocListener<VersionControlCubit, VersionControlState>(
-        listener: (context, state) {
-          if (state is VersionControlLoaded) {
-            context.goNamed('HomeView');
-          } else if (state is VersionControlError) {
-            context.goNamed('VersionUpdate');
-          }
-        },
-        child: Center(
-          child: Assets.lottie.premiumAnimation.lottie(
-            height: 200,
-            width: 200,
-            package: 'gen',
-          ),
-        ),
+        listener: _handleVersionControlState,
+        child: _buildLoadingContent(),
+      ),
+    );
+  }
+
+  void _handleVersionControlState(
+    BuildContext context,
+    VersionControlState state,
+  ) {
+    if (state is VersionControlLoaded) {
+      final targetRoute = state.version ? 'HomeView' : 'VersionUpdate';
+      context.goNamed(targetRoute);
+    }
+  }
+
+  Widget _buildLoadingContent() {
+    return Center(
+      child: Assets.lottie.premiumAnimation.lottie(
+        height: 200,
+        width: 200,
+        package: 'gen',
       ),
     );
   }
