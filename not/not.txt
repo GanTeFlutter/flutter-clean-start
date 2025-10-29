@@ -1,26 +1,72 @@
-
-
-
---envied i projeye göre aktif edeceğimiz için eklemiyorum 
-flutter pub add envied
-flutter pub add --dev envied_generator
-flutter pub add --dev build_runner
-
-
+# 🔥 Firebase Paketleri
 flutter pub add firebase_core
-flutter pub add cloud_firestore
-flutter pub add firebase_remote_config
 flutter pub add firebase_auth
+flutter pub add cloud_firestore
 flutter pub add firebase_storage
-flutter pub add cloud_functions
-flutter pub add firebase_crashlytics
+flutter pub add firebase_remote_config
+flutter pub add firebase_messaging
 flutter pub add firebase_analytics
+flutter pub add firebase_crashlytics
+flutter pub add cloud_functions
 
+# 🌐 Network & API
+flutter pub add dio
+flutter pub add http
+flutter pub add retrofit
 
+# 💾 Local Storage
+flutter pub add shared_preferences
+flutter pub add hive
+flutter pub add flutter_secure_storage
+flutter pub add sqflite
+flutter pub add path_provider
 
+# 🎨 State Management
+flutter pub add flutter_bloc
+flutter pub add provider
+flutter pub add riverpod
+flutter pub add get
+flutter pub add flutter_riverpod
 
+# 🧭 Navigation
+flutter pub add go_router
+flutter pub add auto_route
 
+# 🖼️ UI & Animations
+flutter pub add cached_network_image
+flutter pub add flutter_svg
+flutter pub add lottie
+flutter pub add shimmer
+flutter pub add flutter_animate
+flutter pub add carousel_slider
+flutter pub add smooth_page_indicator
 
+# 📱 Utilities
+flutter pub add connectivity_plus
+flutter pub add permission_handler
+flutter pub add url_launcher
+flutter pub add share_plus
+flutter pub add image_picker
+flutter pub add device_info_plus
+flutter pub add package_info_plus
 
+# 🔔 Notifications
+flutter pub add flutter_local_notifications
 
+# 💳 Payments
+flutter pub add in_app_purchase
 
+# 🌍 Localization
+flutter pub add intl
+flutter pub add easy_localization
+
+# 🧪 Testing & Dev Tools
+flutter pub add freezed_annotation
+flutter pub add json_annotation
+flutter pub add --dev build_runner
+flutter pub add --dev freezed
+flutter pub add --dev json_serializable
+flutter pub add --dev flutter_lints
+
+# 📊 Analytics & Monitoring
+flutter pub add sentry_flutter
