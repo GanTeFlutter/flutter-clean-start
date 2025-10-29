@@ -1,11 +1,9 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter/foundation.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'response.g.dart';
 
 @JsonSerializable()
-@immutable
 final class Response with EquatableMixin {
   const Response({this.title, this.body});
 

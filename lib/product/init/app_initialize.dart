@@ -17,6 +17,6 @@ final class AppInitialize {
     // await Firebase.initializeApp(
     //   options: DefaultFirebaseOptions.currentPlatform,
     // );
-    setupLocator();
+    await setupLocator();
   }
 }
