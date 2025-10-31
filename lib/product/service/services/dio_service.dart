@@ -29,21 +29,21 @@ class HTTPService {
       InterceptorsWrapper(
         //Her istek atıldığında çalışır.
         onRequest: (options, handler) {
-          locator.logger.d(
+          locator.loggerService.d(
             'REQUEST[${options.method}] => PATH: ${options.path}',
           );
           return handler.next(options);
         },
         //İstek başarıyla yanıt döndüğünde çalışır.
         onResponse: (response, handler) {
-          locator.logger.d(
+          locator.loggerService.d(
             'RESPONSE[${response.statusCode}] => DATA: ${response.data}',
           );
           return handler.next(response);
         },
         //Herhangi bir hata olduğunda çalışır.
         onError: (error, handler) {
-          locator.logger.e(
+          locator.loggerService.e(
             'ERROR[${error.response?.statusCode}] => MESSAGE: ${error.message}',
           );
           return handler.next(error);
@@ -128,20 +128,20 @@ class HTTPService {
       case DioExceptionType.connectionTimeout:
       case DioExceptionType.sendTimeout:
       case DioExceptionType.receiveTimeout:
-        locator.logger.e('Timeout Error: ${e.message}');
+        locator.loggerService.e('Timeout Error: ${e.message}');
       case DioExceptionType.badCertificate:
-        locator.logger.e('Bad Certificate Error: ${e.message}');
+        locator.loggerService.e('Bad Certificate Error: ${e.message}');
       case DioExceptionType.badResponse:
-        locator.logger.e(
+        locator.loggerService.e(
           'Server Error: ${e.response?.statusCode} - ${e.response?.data}',
         );
       case DioExceptionType.cancel:
-        locator.logger.e('Request Cancelled');
+        locator.loggerService.e('Request Cancelled');
       case DioExceptionType.connectionError:
-        locator.logger.e('Connection Error: No internet connection');
+        locator.loggerService.e('Connection Error: No internet connection');
 
       case DioExceptionType.unknown:
-        locator.logger.e('Unknown Error: ${e.message}');
+        locator.loggerService.e('Unknown Error: ${e.message}');
     }
   }
 }

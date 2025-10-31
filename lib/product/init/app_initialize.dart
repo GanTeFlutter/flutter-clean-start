@@ -9,7 +9,7 @@ final class AppInitialize {
     WidgetsFlutterBinding.ensureInitialized();
 
     await runZonedGuarded(_initialize, (error, stack) {
-      locator.logger.e('AppInitialize error: $error ');
+      locator.loggerService.e('AppInitialize error: $error ');
     });
   }
 

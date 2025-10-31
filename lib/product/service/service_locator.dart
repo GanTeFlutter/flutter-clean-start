@@ -1,82 +1,40 @@
-// import 'package:flutter_base_start/product/service/services/logger_service.dart';
-// import 'package:flutter_base_start/product/service/services/shared_preferences_service.dart';
-// import 'package:get_it/get_it.dart';
-
-// // GetIt paketinden bir instance (tekil örnek) oluşturuluyor.
-// // Bu instance, uygulama genelinde servisleri tek bir yerden yönetmeyi sağlar.
-// final GetIt locator = GetIt.instance;
-
-// // Bu fonksiyon, uygulama başlatılırken çağrılır ve
-// // servislerin kaydını (register) başlatır.
-// void setupLocator() {
-//   _registerSingletons();
-// }
-
-// // Bu fonksiyon içinde uygulamada tek bir kez oluşturulacak (singleton)
-// // servisler tanımlanır.
-// void _registerSingletons() {
-//   //  hata, uyarı, bilgi gibi log mesajlarını yazmak için kullanılır.
-//   locator
-//     ..registerSingleton<LoggerService>(LoggerService())
-//     ..registerSingleton<SharedPreferencesService>(
-//       SharedPreferencesService(),
-//     );
-
-//   //bu kısmı ileride gerçek bir API adresin olduğunda açabilirsin.
-//   // ..registerSingleton<LoggerService>(LoggerService())
-//   // ..registerSingleton<HTTPService>(
-//   //   HTTPService(
-//   //     baseUrl: 'akillisletme',   // ❌ Geçerli bir URL değil, bu yüzden hata verir.
-//   //     apiKey: 'akillisletme',    // Örnek amaçlı sabit API anahtarı.
-//   //     dio: Dio(),                // Dio nesnesi HTTP istekleri yapmak için kullanılır.
-//   //   ),
-//   // );
-// }
-
-// // Şu anda boş ama ilerde "lazy singleton" tanımlamak için kullanılabilir.
-// // Lazy singleton: sadece ilk kez ihtiyaç duyulduğunda oluşturulan servistir.
-// // void _registerLazySingletons() {}
-
-// // Bu da ilerde "factory" tipi kayıtlar için kullanılabilir.
-// // Factory: her çağrıldığında yeni bir nesne döndürür.
-// // void _registerFactories() {}
-
-// // Bu extension, locator üzerinden kısa yoldan servislere erişmeyi sağlar.
-// // Örneğin: locator.logger veya locator.http
-// extension ServiceLocator on GetIt {
-//   LoggerService get logger => locator<LoggerService>();
-//   // HTTPService get http => locator<HTTPService>();
-//   SharedPreferencesService get sharedPreferences =>
-//       locator<SharedPreferencesService>();
-// }
-
-// //locator.logger.e('AppInitialize error: $error ');
-
 import 'package:flutter_base_start/product/service/services/logger_service.dart';
 import 'package:flutter_base_start/product/service/services/shared_preferences_service.dart';
+import 'package:flutter_base_start/product/service/services/url_launcher_service.dart';
 import 'package:get_it/get_it.dart';
 
 final GetIt locator = GetIt.instance;
 
+/// Tüm servisleri kaydeder ve başlatır
 Future<void> setupLocator() async {
   _registerSingletons();
   await _initializeServices();
 }
 
+/// Servisleri başlatır (init fonksiyonlarını çağırır)
 Future<void> _initializeServices() async {
   await locator<SharedPreferencesService>().init();
 }
 
+/// Singleton servisleri kaydeder
 void _registerSingletons() {
   locator
     ..registerSingleton<LoggerService>(LoggerService())
-    ..registerSingleton<SharedPreferencesService>(SharedPreferencesService());
+    ..registerSingleton<SharedPreferencesService>(SharedPreferencesService())
+    ..registerSingleton<UrlLauncherService>(UrlLauncherService());
 }
 
-
+/// GetIt instance'ına kolay erişim için extension
+///
+/// Kullanım:
+/// - locator.logger
+/// - locator.sharedprefs
+/// - locator.urlLauncher
 extension ServiceLocator on GetIt {
-  LoggerService get logger => locator<LoggerService>();
+  LoggerService get loggerService => locator<LoggerService>();
 
-  SharedPreferencesService get sharedprefs =>
+  SharedPreferencesService get sharedprefsService =>
       locator<SharedPreferencesService>();
+
+  UrlLauncherService get urlLauncherService => locator<UrlLauncherService>();
 }
