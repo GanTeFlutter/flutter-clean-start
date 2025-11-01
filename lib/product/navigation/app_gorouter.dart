@@ -3,21 +3,28 @@ part of '../../main.dart';
 final GoRouter _router = GoRouter(
   navigatorKey: AppKeys.navigatorKey,
   routes: <RouteBase>[
+    //bildirim göndermeyeceğimiz için Dışarıda bıraktık
     GoRoute(
       path: '/',
       builder: (BuildContext context, GoRouterState state) {
         return const SplashView();
       },
-      routes: <RouteBase>[
+    ),
+    //Kapsayıcı route
+    ShellRoute(
+      builder: (context, state, child) {
+        return AppListenerNotification(child: child);
+      },
+      routes: [
         GoRoute(
-          path: 'home',
+          path: '/home',
           name: AppRoutes.homeView,
           builder: (BuildContext context, GoRouterState state) {
             return const HomeView();
           },
         ),
         GoRoute(
-          path: 'versionUpdateView',
+          path: '/versionUpdateView',
           name: AppRoutes.versionUpdateView,
           builder: (BuildContext context, GoRouterState state) {
             return const VersionUpdateView();

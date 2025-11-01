@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base_start/future/splash/cubit/version_control_cubit.dart';
+import 'package:flutter_base_start/product/service/version/cubit/version_control_cubit.dart';
 import 'package:flutter_base_start/product/constant/app_padding.dart';
 import 'package:flutter_base_start/product/constant/app_routes.dart';
 import 'package:flutter_base_start/product/constant/app_strings.dart';

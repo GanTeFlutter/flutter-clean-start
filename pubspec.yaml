@@ -46,6 +46,7 @@ dependencies:
 
   gen:
     path: module/gen
+  bloc_concurrency: ^0.3.0
 
 
 dev_dependencies:

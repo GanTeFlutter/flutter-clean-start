@@ -1,6 +1,7 @@
-import 'package:flutter_base_start/product/service/services/logger_service.dart';
-import 'package:flutter_base_start/product/service/services/shared_preferences_service.dart';
-import 'package:flutter_base_start/product/service/services/url_launcher_service.dart';
+import 'package:flutter_base_start/product/service/services/sesvice_logger.dart';
+import 'package:flutter_base_start/product/service/services/sesvice_shared_preferences.dart';
+
+import 'package:flutter_base_start/product/service/services/sesvice_url_launcher.dart';
 import 'package:get_it/get_it.dart';
 
 final GetIt locator = GetIt.instance;

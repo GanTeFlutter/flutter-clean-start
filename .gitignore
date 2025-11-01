@@ -11,21 +11,14 @@
 .svn/
 .swiftpm/
 migrate_working_dir/
-assets/env/
+module/gen/assets/env/
 
-
-# IntelliJ related
 *.iml
 *.ipr
 *.iws
 .idea/
 
-# The .vscode folder contains launch configuration and tasks you configure in
-# VS Code which you may wish to be included in version control, so this line
-# is commented out by default.
-#.vscode/
 
-# Flutter/Dart/Pub related
 **/doc/api/
 **/ios/Flutter/.last_build_id
 .dart_tool/
@@ -35,16 +28,55 @@ assets/env/
 .pub/
 /build/
 
-# Symbolication related
 app.*.symbols
 
-# Obfuscation related
 app.*.map.json
 
-# Android Studio will place build artifacts here
 /android/app/debug
 /android/app/profile
 /android/app/release
 
-# Generated files
 *.g.dart
+
+
+lib/firebase_options.dart
+android/app/google-services.json
+ios/Runner/GoogleService-Info.plist
+ios/firebase_app_id_file.json
+
+
+module\gen\lib\src\environment
+
+.env
+.env.*
+*.env
+module/gen/lib/src/environment/
+module/gen/lib/src/asset/
+
+.firebase/
+firebase-debug.log
+firestore-debug.log
+database-debug.log
+ui-debug.log
+firebase-debug.*.log
+
+*.p8
+*.p12
+
+*-service-account.json
+service-account-*.json
+serviceAccountKey.json
+
+ios/Runner/GoogleService-Info.plist
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/flutter_export_environment.sh
+ios/Flutter/Flutter.podspec
+ios/Flutter/Generated.xcconfig
+
+*.jks
+*.keystore
+android/key.properties
+android/app/upload-keystore.jks
+
+local.properties

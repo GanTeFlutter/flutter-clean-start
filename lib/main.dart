@@ -5,7 +5,8 @@ import 'package:flutter_base_start/future/splash/version_update.dart';
 import 'package:flutter_base_start/product/constant/app_keys.dart';
 import 'package:flutter_base_start/product/constant/app_routes.dart';
 import 'package:flutter_base_start/product/init/app_initialize.dart';
-import 'package:flutter_base_start/product/init/state_initialize.dart';
+import 'package:flutter_base_start/product/init/app_listiner_initialize.dart';
+import 'package:flutter_base_start/product/init/app_state_initialize.dart';
 import 'package:go_router/go_router.dart';
 
 part 'product/navigation/app_gorouter.dart';
