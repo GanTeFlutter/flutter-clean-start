@@ -64,13 +64,7 @@ class _HomeViewState extends State<HomeView> {
             ),
 
             ElevatedButton(
-              onPressed: () async {
-                await Navigator.of(context).push(
-                  MaterialPageRoute<void>(
-                    builder: (context) => const NotificationTestView(),
-                  ),
-                );
-              },
+              onPressed: () async {},
               child: const Text('Deneme Ekranına Git'),
             ),
           ],
