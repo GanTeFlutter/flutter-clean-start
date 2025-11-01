@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base_start/product/service/version/cubit/version_control_cubit.dart';
 import 'package:flutter_base_start/product/constant/app_padding.dart';
 import 'package:flutter_base_start/product/constant/app_routes.dart';
 import 'package:flutter_base_start/product/constant/app_strings.dart';
+import 'package:flutter_base_start/product/service/version/cubit/version_control_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gen/gen.dart';
 import 'package:go_router/go_router.dart';
@@ -86,7 +86,7 @@ class SplashView extends StatelessWidget {
             ),
             ElevatedButton.icon(
               onPressed: () {
-                //retry 
+                //retry
                 context.read<VersionControlCubit>().checkVersion();
               },
               icon: const Icon(Icons.refresh),
