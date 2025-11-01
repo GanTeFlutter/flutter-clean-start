@@ -1,18 +1,15 @@
-// lib/core/utils/notification_helper.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_base_start/product/constant/app_keys.dart';
 
-class NotificationHelper {
-  NotificationHelper._();
+@immutable
+final class NotificationHelper {
+  const NotificationHelper._();
 
   static BuildContext? get _context => AppKeys.context;
   static OverlayState? get _overlay => AppKeys.overlay;
 
-  // ============================================
-  //  (SnackBar)
-  // ============================================
+  static bool _isTopSnackBarShowing = false;
 
-  /// Genel SnackBar gösterme metodu
   static void _showSnackBar({
     required String message,
     required Color backgroundColor,
@@ -46,7 +43,6 @@ class NotificationHelper {
     );
   }
 
-  /// Alttan gelen başarı bildirimi (yeşil)
   static void showSuccessSnackBar(String message) {
     _showSnackBar(
       message: message,
@@ -55,7 +51,6 @@ class NotificationHelper {
     );
   }
 
-  /// Alttan gelen uyarı bildirimi (turuncu)
   static void showWarningSnackBar(String message) {
     _showSnackBar(
       message: message,
@@ -64,7 +59,6 @@ class NotificationHelper {
     );
   }
 
-  /// Alttan gelen hata bildirimi (kırmızı)
   static void showErrorSnackBar(String message) {
     _showSnackBar(
       message: message,
@@ -73,7 +67,6 @@ class NotificationHelper {
     );
   }
 
-  /// Alttan gelen bilgi bildirimi (mavi)
   static void showInfoSnackBar(String message) {
     _showSnackBar(
       message: message,
@@ -82,19 +75,18 @@ class NotificationHelper {
     );
   }
 
-  // ============================================
-  // ÜSTTEN GELEN BİLDİRİMLER (Top SnackBar)
-  // ============================================
-
-  /// Üstten gelen özelleştirilebilir bildirim
   static void showTopSnackBar({
     required String message,
     Color? backgroundColor,
     IconData? icon,
     Duration duration = const Duration(seconds: 3),
   }) {
+    if (_isTopSnackBarShowing) return;
+
     final overlayState = _overlay;
     if (overlayState == null) return;
+
+    _isTopSnackBarShowing = true;
 
     late OverlayEntry overlayEntry;
 
@@ -106,6 +98,7 @@ class NotificationHelper {
         onClose: () {
           if (overlayEntry.mounted) {
             overlayEntry.remove();
+            _isTopSnackBarShowing = false;
           }
         },
       ),
@@ -113,15 +106,14 @@ class NotificationHelper {
 
     overlayState.insert(overlayEntry);
 
-    // Otomatik kapat
     Future.delayed(duration, () {
       if (overlayEntry.mounted) {
         overlayEntry.remove();
+        _isTopSnackBarShowing = false;
       }
     });
   }
 
-  /// Üstten başarı bildirimi
   static void showTopSuccessSnackBar(String message) {
     showTopSnackBar(
       message: message,
@@ -130,7 +122,6 @@ class NotificationHelper {
     );
   }
 
-  /// Üstten hata bildirimi
   static void showTopErrorSnackBar(String message) {
     showTopSnackBar(
       message: message,
@@ -139,7 +130,6 @@ class NotificationHelper {
     );
   }
 
-  /// Üstten uyarı bildirimi
   static void showTopWarningSnackBar(String message) {
     showTopSnackBar(
       message: message,
@@ -148,7 +138,6 @@ class NotificationHelper {
     );
   }
 
-  /// Üstten bilgi bildirimi
   static void showTopInfoSnackBar(String message) {
     showTopSnackBar(
       message: message,
@@ -158,10 +147,6 @@ class NotificationHelper {
   }
 }
 
-// ============================================
-// ÖZEL WIDGET: Üstten Gelen Bildirim
-// ============================================
-
 class _TopSnackBarWidget extends StatelessWidget {
   const _TopSnackBarWidget({
     required this.message,
@@ -169,6 +154,7 @@ class _TopSnackBarWidget extends StatelessWidget {
     this.backgroundColor,
     this.icon,
   });
+
   final String message;
   final Color? backgroundColor;
   final IconData? icon;
