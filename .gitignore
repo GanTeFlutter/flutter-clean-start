@@ -13,10 +13,16 @@
 migrate_working_dir/
 module/gen/assets/env/
 
+
+# IntelliJ related
 *.iml
 *.ipr
 *.iws
 .idea/
+
+
+# Visual Studio Code related
+.vscode/
 
 
 **/doc/api/
@@ -35,6 +41,17 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+**/android/**/gradle-wrapper.jar
+**/android/.gradle
+**/android/captures/
+**/android/gradlew
+**/android/gradlew.bat
+**/android/local.properties
+**/android/**/GeneratedPluginRegistrant.java
+
+
+
+
 
 *.g.dart
 
